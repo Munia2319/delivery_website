@@ -1,0 +1,24 @@
+API:
+https://seller.etaka.online/ecommerce/generateurl-deliverapp
+user_name=delivery_user
+security_code=uwvefjpwmves
+
+Request Params:
+	amount
+	description
+	deliveryOrderId
+	description
+	user_name
+
+Dumy request parram:
+amount=13.16&description=description&deliveryOrderId=22&deliveryURL=https://courier.etaka.online/delivery/order-received/2227/?key=wc_order_giBlyJPRT7eRc&security_code=uwvefjpwmves&user_name=delivery_user
+
+Dummy Response (JSON): 
+{
+    "payment_url": "https://etaka.online/o?i=aHNj&a=13.16&c=1&t=7&v=SyyPIIdm&s=3a5b28708f6645708b16&d=description&is_commerce=commerceTrue&ecommerceOrderId=22&ecommerceURL=https://market.buy-now.biz/fcommerce/checkout/order-received/2227/?key=wc_order_giBlyJPRT7eRc",
+    "qrcode_url": "https://seller.etaka.online/genQRCode/i=aHNj&a=13.16&c=1&t=7&v=SyyPIIdm&s=3a5b28708f6645708b16&d=description&is_commerce=commerceTrue&ecommerceOrderId=22&ecommerceURL=https://market.buy-now.biz/fcommerce/checkout/order-received/2227/?key=wc_order_giBlyJPRT7eRc/200/200",
+    "url": "https://etaka.online/o?i=aHNj&a=13.16&c=1&t=7&v=SyyPIIdm&s=3a5b28708f6645708b16&d=description&is_commerce=commerceTrue&ecommerceOrderId=22&ecommerceURL=https://market.buy-now.biz/fcommerce/checkout/order-received/2227/?key=wc_order_giBlyJPRT7eRc",
+    "responseCode": "200"
+}
+
+Please try to parse "url" value, and redirect on this.

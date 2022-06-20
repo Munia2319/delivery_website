@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Page</title>
+
+    <style>
+        .info-container-2{
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .title{
+            font-weight: bolder;
+            font-size: larger;
+        }
+        label{
+            font-size: 15px;
+            font-weight: bold;
+        }
+        input{
+            margin: .3rem;
+           
+        }
+        .readonly{
+            width: 75%;
+           margin-left: 18%;
+        }
+    
+        #country,#state,#delivery_speed,#delivery_type ,#estimated_weight,#payment,#estimated_cost{border:0;outline:0;}
+        
+
+    </style>
+</head>
+<body>
+    <div class="info-container-2">
+        <form method="post" action="/third/">
+            {% csrf_token %}
+           
+         
+            
+            <input type="hidden" id="height" name="height" value="{{height}}" readonly><br>
+            <input type="hidden" id="width" name="width" value="{{width}}" readonly><br>
+            <input type="hidden" id="Length" name="length" value="{{length}} " readonly><br>
+            <input type="hidden" id="weight" name="weight" value="{{weight}}" readonly><br>
+            <input type="hidden" id="pickup_date_1" name="pickup_date_1" value="{{pickup_date_1}}" readonly><br>
+            <input type="hidden" id="pickup_date_2" name="pickup_date_2" value="{{pickup_date_2}}" readonly><br>
+            <input type="hidden" id="volumetric_weight" name="volumetric_weight" value="{{volumetric_weight}}" readonly><br>
+            <input type="hidden" id="product_list" name="product_list" value="{{product_list}}" readonly><br>
+
+            <div class="recipient_address_container">
+                <p class="title">Recipient Info:</p>
+                <div class="readonly">
+                    <label for="country">Country:</label>
+                <input type="text" id="country" name="country" value="{{country}}" readonly><br>
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" value="{{state}}" readonly><br>
+                <label for="delivery_type">Delivery type:</label>
+                <input type="text" id="delivery_type" name="delivery_type" value="{{delivery_type}}" readonly><br>
+                <label for="">Estimated weight (in kg):</label>
+                <input type="text" id="estimated_weight" name="estimated_weight" value="{{estimated_weight}}" readonly><br>
+                <label for="payment">Estimated cost ($):</label>
+                <input type="text" id="estimated_cost" name="estimated_cost" value="{{estimated_cost}}" readonly><br>
+                </div>
+               
+               
+            </div>
+            
+            <div class="more_info">
+                <p class="title">Give us more info:</p>
+                <label for="recipient_name">Recipient Name:</label><br>
+                <input type="text" id="recipient_name" name="recipient_name" value="" autocomplete="off"><br>
+                <label for="phn">Phone:</label><br>
+                <input type="text" id="phone" name="phone" value="" autocomplete="off"><br>
+                <label for="house_number">House Number:</label><br>
+                <input type="text" id="house_number" name="house_number" value="" autocomplete="off"><br>
+                <label for="street_name">Street name:</label><br>
+                <input type="text" id="street_name" name="street_name" value="" autocomplete="off"><br>
+                <label for="apartment_number">Apartment/Suite/Room number (if any):</label><br>
+                <input type="apartment_number" id="apartment_number" name="apartment_number" value="" autocomplete="off"><br>
+                <label for="town">Name of town:</label><br>
+                <input type="text" id="town" name="town" value="" autocomplete="off"><br>
+                <label for="zip_code">Zip code:</label><br>
+                <input type="text" id="zip_code" name="zip_code" value="" autocomplete="off"><br>
+                
+            </div>           
+            <br>
+        
+            <input type="submit" value="Continue">
+        </form> 
+      <!--{{delivery_rate_row}}
+      {{traditional_goods}}
+      
+      {{product}}
+      {{product_row}}
+      {{product_type_container}}
+      {{product_type}}
+      {{covid_charge_row}}
+      Estimated-cost-{{estimated_cost}}
+    <p>pickup_date_1--{{pickup_date_1}}</p>
+      <p>pickup_date_2--{{pickup_date_2}}</p>
+      <p>product-list--{{product_list}}</p>
+
+      <p>volumetric_weight-{{volumetric_weight}}</p>
+      <p>weight-charge-{{x1}}</p>
+      <p>covid-charge-{{x2}}</p>
+      <p>fuel-charge-{{x3}}</p>
+      <p>heavy item charge-{{x4}}</p>
+      <p>pickup-charge-{{x5}}</p>
+      <p>{{estimated_cost}}</p>
+       <!--House number and street name + Apartment/Suite/Room number (if any)
+Name of town + State abbreviation + ZIP code-->
+    </div>
+</body>
+</html>

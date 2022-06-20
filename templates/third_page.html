@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
+    <style>
+        ul{
+            list-style-type: none;
+            font: 300;
+            font-family: Arial, Helvetica, sans-serif;
+          
+        }
+
+        .list_container{
+            width: 800px;
+            margin: 0 auto;
+        }
+        .payment_details_container{
+          width: 100%;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-top: 5rem;
+          text-align: center;
+          text-align: center;
+          height: 50%;
+        }
+        
+        span{
+            font-weight: bolder;
+        }
+        
+        button{
+           
+            justify-self: center;
+        }
+        .list-grp{
+            width: 300px !important;
+        }
+    </style>
+    
+</head>
+<body>
+
+   
+    <div class="payment_details_container">
+        <h2 class="title">
+            Delivery Details
+        </h2>
+        <div class="list_container">
+            <ul class="list-group list-group-horizontal-xl">
+                <li class="list-group-item list-grp"><span>Recipient Name:</span></li>
+                <li class="list-group-item list-grp">{{recipient_name}}</li>
+                
+              </ul>
+              <ul class="list-group list-group-horizontal-xl">
+                <li class="list-group-item list-grp"><span>Address:</span></li>
+                <li class="list-group-item list-grp">{{house_number}} &nbsp; {{street_name}} &nbsp; {{apartment_number}} <br>{{town}}, {{state}} &nbsp;{{country}}</li>
+                
+              </ul>
+              <ul class="list-group list-group-horizontal-xl">
+                <li class="list-group-item list-grp"><span>Contact Number:</span></li>
+                <li class="list-group-item list-grp">{{phone}}</li>
+             
+              </ul>
+              <ul class="list-group list-group-horizontal-xl">
+                <li class="list-group-item list-grp"><span>Delivery type:</span></li>
+                <li class="list-group-item list-grp">{{delivery_type}}</li>
+              
+              </ul>
+              
+              <ul class="list-group list-group-horizontal-xl">
+                <li class="list-group-item list-grp"><span>Payment in Total:</span></li>
+                <li class="list-group-item list-grp">${{estimated_cost}}</li>
+                
+              </ul>
+              <ul class="list-group list-group-horizontal-xl">
+                <li class="list-group-item list-grp"><span>Pickup date:</span></li>
+                <li class="list-group-item list-grp"></li>
+              </ul>
+           
+        </div>
+        
+
+
+        <form action="/test/" method="post">
+            <!--https://eotwpn3er7w2909.m.pipedream.net-->
+            {% csrf_token %}
+            
+            <input type="hidden" id="pickup_date_1" name="pickup_date_1" value="{{pickup_date_1}}" readonly><br>
+            <input type="hidden" id="pickup_date_2" name="pickup_date_2" value="{{pickup_date_2}}" readonly><br>
+            <input type="hidden" id="recipient_name" name="recipient_name" value="{{recipient_name}}" readonly><br>
+            <input type="hidden" id="phone" name="phone" value="{{phone}} " readonly><br>
+            <input type="hidden" id="delivery_type" name="delivery_type" value="{{delivery_type}}" readonly><br>
+            <input type="hidden" id="estimated_cost" name="estimated_cost" value="{{estimated_cost}}" readonly><br>
+            <input type="hidden" id="estimated_weight" name="estimated_weight" value="{{estimated_weight}}" readonly><br>
+            <input type="hidden" id="country" name="country" value="{{country}} " readonly><br>
+            <input type="hidden" id="state" name="state" value="{{state}}" readonly><br>
+            <input type="hidden" id="house_number" name="house_number" value="{{house_number}}" readonly><br>
+            <input type="hidden" id="street_name" name="street_name" value="{{street_name}}" readonly><br>
+            <input type="hidden" id="apartment_number" name="apartment_number" value="{{apartment_number}}" readonly><br>
+            <input type="hidden" id="zip_code" name="zip_code" value="{{zip_code}}" readonly><br>
+            <input type="hidden" id="town" name="town" value="{{town}}" readonly><br>
+            <input type="hidden" id="volumetric_weight" name="volumetric_weight" value="{{volumetric_weight}}" readonly><br>
+            <input type="hidden" id="product_list" name="product_list" value="{{product_list}}" readonly><br>
+            
+            <input type="submit" value="Pay">
+
+        </form>
+
+        <!--House number and street name + Apartment/Suite/Room number (if any)
+Name of town + State abbreviation + ZIP code-->
+<!--Jeremy Martinson, Jr.
+455 Larkspur Dr. Apt 23
+Baviera, CA  92908-->
+    </div>
+    <!--<ul>
+        <li>height-{{height_float}}</li>
+        <li>length-{{length_float}}</li>
+        <li>width-{{width_float}}</li>
+        <li>Covid charge-{{covid_charge}}</li>
+        <li>volumetric weight-{{volumetric_weight}}</li>
+        <li>delivery_rate-{{demo}}</li>
+        <li>Total Payment-{{payment}}</li>
+        <li>New amount-{{new_d}}</li>
+        <li>delvery type-{{delivery_type}}</li>
+
+    
+       
+        
+        {%for x in new_d %}
+            {{x.country}}
+            {{x.weight}}
+            {{x.amount}}<br>
+        {%endfor%}-->
+        <a href="https://seller.etaka.online/ecommerce/generateurl-deliverapp">api</a>
+        
+        
+        
+        <!--{{new}}-->
+        {{product_list}}
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    </ul>
+</body>
+</html>

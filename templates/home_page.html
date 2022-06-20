@@ -1,0 +1,334 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet"  href="{% static 'jquery/date/jquery-ui.css' %}" />
+
+  <script src="{% static 'jquery/date/jquery-3.6.0.js' %}"></script>
+  <script src="{% static 'jquery/date/jquery-ui.js' %}"></script>
+  <script src="{% static 'jquery/time/jquery.timepicker.js' %}"></script>
+  <!-- <script src="jquery/time/jquery.timepicker.css"></script> -->
+<link rel="stylesheet"  href="{% static 'jquery/time/jquery.timepicker.css' %}" />
+<style>
+  .info-container-1{
+    width: 50%;
+    margin: 0 auto;
+  }
+  p,label,optgroup{
+    color: black !important;
+    font-weight: bold;
+  }
+  .product_size{
+    margin-bottom: 1rem;
+  }
+
+
+
+body{
+  font-family: "Trebuchet MS", sans-serif;
+  margin: 50px;
+}
+.demoHeaders {
+  margin-top: 2em;
+}
+#dialog-link {
+  padding: .4em 1em .4em 20px;
+  text-decoration: none;
+  position: relative;
+}
+#dialog-link span.ui-icon {
+  margin: 0 5px 0 0;
+  position: absolute;
+  left: .2em;
+  top: 50%;
+  margin-top: -8px;
+}
+#icons {
+  margin: 0;
+  padding: 0;
+}
+#icons li {
+  margin: 2px;
+  position: relative;
+  padding: 4px 0;
+  cursor: pointer;
+  float: left;
+  list-style: none;
+}
+.date-container{
+padding-left: 0% !important;
+}
+#icons span.ui-icon {
+  float: left;
+  margin: 0 4px;
+}
+.fakewindowcontain .ui-widget-overlay {
+  position: absolute;
+}
+select {
+  width: 200px;
+}
+.product_selection_container{
+  display: flex;
+  justify-content:flex-start;
+  gap: 1rem !important;
+  flex-wrap: wrap;
+
+}
+.product_selection{
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  border-left: 2px solid black !important;
+  width: 170px;
+  padding-left: 1rem ;
+  column-gap: 5px;
+  
+}
+.delivery_type_container,.product_size_container,.product_selection_container{
+  padding-left: 2rem;
+}
+.title{
+  font-size: larger;
+  margin-top:2rem;
+  margin-bottom:.5rem;
+  color: black;
+  font-weight: bolder;
+}
+
+</style>
+</head>
+<body>
+	<div align="">
+
+    
+    <div class="info-container-1">
+      <p>Homepage</p>
+        <form method="post" action="/second/">
+            {% csrf_token %}
+
+            <script src="{% static 'scripts/jquery.toselect.js' %}"></script>
+<script>
+        $(function () {
+            $('#myToSelect').toSelect();
+        })
+    </script>
+
+    <select id="myToSelect" data-parent="#parent" data-child="#child">
+        <!--<option value=""></option>-->
+            <optgroup label="TextValue['Bangladesh','Bangladesh']">
+                <option value="Dhaka">Dhaka</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Chittangon">Chittagong</option>
+            </optgroup>
+            <optgroup label="TextValue['USA','USA']">
+                <option value="New York">New York</option>
+                <option value="Florida">Florida</option>
+                <option value="Alaska">Alaska</option>
+            </optgroup>
+            <optgroup label="TextValue['Canada','Canada']">
+                <option value="Ontario"> Ontario</option>
+                <option value="Alberta">Alberta</option>
+                <option value="Quebec">Quebec</option>
+            </optgroup>
+    </select>
+    
+    <p>Country:<select id="parent" name="parent" class="form-control">
+        <option value="" data-keep="true">Please select country</option>
+    </select></p>
+
+    <label id="stateLabel">State/Division</label>
+    <select id="child" name="child" class="form-control">
+        <option value="" data-keep="true">Please select</option>
+    </select>
+
+    <script 
+
+    >$(function() {
+  $('#parent').change(function() {
+    if ($(this).val() == 'Bangladesh') {
+      $('#stateLabel').text('Division');
+    } else if ($(this).val() == 'USA' || $(this).val() == 'Other') {
+      $('#stateLabel').text('State');
+    } else {
+      $('#stateLabel').text('State');
+    }
+  });
+});</script>
+
+<link rel="stylesheet" href="{% static 'all.min.css' %}"  />
+
+<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}" />
+
+<link rel="stylesheet" href="{% static 'tempus-dominus.css' %}" />
+
+<script src="{% static 'popper.min.js' %}"></script>
+      
+<script src="{% static 'tempus-dominus.js' %}"></script>
+
+<div class="container date-container" style="text-align:center;">
+  
+  <span
+   id='icon-only'
+   class='log-event'
+   style='display: inline-block'
+ >
+  
+ </span>
+
+ <!-- Datepicker -->
+
+<link href="jquery-ui.css" rel="stylesheet">
+<script src="jquery.js"></script>
+<scrip src="jquery-ui.js"></script>
+
+<p align="center">Pick up Date</p>
+<p>From: <input type="text" id="datepicker" name="pickup_date_1" value=""> To:<input type="text" id="datepicker2" name="pickup_date_2" value=""> </p>
+  
+</div>
+
+<script>
+  $( "#accordion" ).accordion();
+  
+  var availableTags = [
+    "ActionScript",
+    "AppleScript",
+    "Asp",
+    "BASIC",
+    "C",
+    "C++",
+    "Clojure",
+    "COBOL",
+    "ColdFusion",
+    "Erlang",
+    "Fortran",
+    "Groovy",
+    "Haskell",
+    "Java",
+    "JavaScript",
+    "Lisp",
+    "Perl",
+    "PHP",
+    "Python",
+    "Ruby",
+    "Scala",
+    "Scheme"
+  ];
+  $( "#autocomplete" ).autocomplete({
+    source: availableTags
+  });
+  
+  $( "#button" ).button();
+  $( "#button-icon" ).button({
+    icon: "ui-icon-gear",
+    showLabel: false
+  });
+  
+  $( "#radioset" ).buttonset();
+  
+  $( "#controlgroup" ).controlgroup();
+  
+  $( "#tabs" ).tabs();
+  
+  $( "#dialog" ).dialog({
+    autoOpen: false,
+    width: 400,
+    buttons: [
+      {
+        text: "Ok",
+        click: function() {
+          $( this ).dialog( "close" );
+        }
+      },
+      {
+        text: "Cancel",
+        click: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    ]
+  });
+  
+  // Link to open the dialog
+  $( "#dialog-link" ).click(function( event ) {
+    $( "#dialog" ).dialog( "open" );
+    event.preventDefault();
+  });
+  
+  $( "#datepicker" ).datepicker({
+    inline: true
+  });
+  
+  $( "#datepicker2" ).datepicker({
+    inline: true
+  });
+  
+  </script>
+ 
+
+
+
+ 
+
+
+        
+            
+            <div class="title">Please select you delivery type:</div>
+              
+            <div class="delivery_type_container">
+              
+              <input type="checkbox" id="delivery_type" name="delivery_type" value="DOX"> 
+              <label for="DOX">Documents</label><br>
+              <input type="checkbox" id="delivery_type" name="delivery_type" value="WPX" checked="checked">
+              <label for="WPX">Worldwide Package</label><br>
+
+            </div>
+            
+
+            <div class="title">Please select the goods:</div>
+
+            <div class="product_selection_container">
+             
+                {%for product in products%}
+                <div class="product_selection">
+                <input type="checkbox" id="{{product.product_name}}" name="goods_type" value="{{product.product_name}}"> 
+                <label for="{{product.product_name}}">{{product.product_name}}</label><br>
+                </div>
+               {%endfor%}
+              
+              
+            </div>
+            <div class="title">Package Size:</div>
+
+            <div class="product_size_container">
+              <div class="product_size">
+                <label for="height">Height (cm):</label>
+                <input type="text" id="height" name="height" value="">
+              </div>
+              <div class="product_size">
+                <label for="width">Width (cm):</label>
+              <input type="text" id="width" name="width" value=""><br>
+              </div>
+              <div class="product_size">
+                <label for="length">Length (cm):</label>
+              <input type="text" id="Length" name="length" value="">
+              </div>
+              <br>
+              
+              <br>
+              <input type="hidden" id="weight" name="weight" value="0.0"><br>
+            </div>
+            
+            
+
+            
+            <input type="submit" value="Continue">
+          </form> 
+    </div>
+    </div>
+</body>
+</html>
